@@ -330,30 +330,33 @@ body.no-scroll {
 
     .menu-toggle {
         display: block; /* Показываем бургер */
-        width: 40px; /* Увеличиваем размер контейнера */
-        height: 40px;
-        /* Делаем его квадратным с темным фоном (по желанию, как в некоторых макетах) */
-        /* background-color: var(--color-dark); */ 
-        border: 2px solid var(--color-yellow); /* Рамка для заметности */
-        border-radius: 4px;
-        padding: 5px;
+        width: 38px; /* Ширина и высота квадрата */
+        height: 38px;
+        border: 2px solid var(--color-yellow); /* Желтая рамка, как на макете */
+        border-radius: 4px; /* Скругление углов, как на макете */
+        background-color: transparent; /* Прозрачный фон */
+        padding: 7px; /* Внутренние отступы для полосок */
+        position: relative;
+        z-index: 102;
     }
     
     .menu-toggle .bar {
+        display: block; /* Убеждаемся, что полоски точно отображаются */
         background: var(--color-yellow); /* Желтая полоска */
-        height: 4px; /* Увеличиваем толщину полоски */
-        margin: 4px 0; /* Корректируем отступы */
+        height: 3px; 
+        margin: 4px 0; /* Отступы между полосками */
+        transition: all 0.3s ease-in-out;
     }
 
-        /* Анимация (Опционально: крестик при открытии) */
+    /* Анимация крестика при открытии */
     .menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
         opacity: 0;
     }
     .menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(7px) rotate(45deg);
     }
     .menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-7px) rotate(-45deg);
     }
     /* --- МОБИЛЬНОЕ МЕНЮ --- */
     .main-menu {
