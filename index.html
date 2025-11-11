@@ -13,6 +13,44 @@
 </head>
 <body>
 
+<!-- МОДАЛЬНОЕ ОКНО ЗАЯВКИ -->
+    <!-- ==================================== -->
+    <div id="callback-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 class="modal-title">Оставить заявку</h2>
+            <p class="modal-subtitle">Наш менеджер свяжется с вами в течение 5 минут для уточнения деталей.</p>
+            
+            <form id="callback-form">
+                
+                <div class="form-group">
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Ваш телефон:</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+375 (XX) XXX-XX-XX">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Вид услуги:</label>
+                    <select id="service" name="service" required>
+                        <option value="" disabled selected>Выберите услугу</option>
+                        <option value="Электромонтажные работы">Электромонтажные работы</option>
+                        <option value="Сантехнические работы">Сантехнические работы</option>
+                        <option value="Сборка мебели">Сборка мебели</option>
+                        <option value="Консультация">Просто консультация</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary modal-submit-btn">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+
+
     <header class="header">
         <div class="header-container">
             
@@ -104,7 +142,7 @@
                     Надежный сервис, конкурентные цены и гарантия качества работы.
                 </p>
                 <div class="hero-cta">
-                    <a href="#" class="btn btn-primary">Оставить заявку</a>
+                    <a href="#" class="btn btn-primary open-modal-btn">Оставить заявку</a>
                     <a href="tel:+375331111111" class="btn btn-secondary">Позвонить</a>
                 </div>
             </div>
