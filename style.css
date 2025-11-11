@@ -329,22 +329,27 @@ body.no-scroll {
     }
 
     .menu-toggle {
-        display: block; /* Показываем бургер */
-        width: 38px; /* Ширина и высота квадрата */
+        display: flex; /* Используем Flexbox для центрирования содержимого */
+        flex-direction: column; /* Полоски располагаем вертикально */
+        justify-content: center; /* Центрируем по вертикали */
+        align-items: center; /* Центрируем по горизонтали */
+        
+        width: 38px; 
         height: 38px;
-        border: 2px solid var(--color-yellow); /* Желтая рамка, как на макете */
-        border-radius: 4px; /* Скругление углов, как на макете */
-        background-color: transparent; /* Прозрачный фон */
-        padding: 7px; /* Внутренние отступы для полосок */
+        border: 2px solid var(--color-yellow); 
+        border-radius: 4px; 
+        background-color: transparent; 
+        padding: 5px; /* Уменьшаем padding для лучшего контроля центрирования */
         position: relative;
         z-index: 102;
     }
     
     .menu-toggle .bar {
-        display: block; /* Убеждаемся, что полоски точно отображаются */
-        background: var(--color-yellow); /* Желтая полоска */
+        display: block; 
+        background: var(--color-yellow); 
         height: 3px; 
-        margin: 4px 0; /* Отступы между полосками */
+        width: 100%; /* Устанавливаем 100% ширину полосок */
+        margin: 3px 0; /* Корректируем отступы между полосками */
         transition: all 0.3s ease-in-out;
     }
 
@@ -353,10 +358,11 @@ body.no-scroll {
         opacity: 0;
     }
     .menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
+        /* Корректируем translateY, т.к. margin и padding изменились */
+        transform: translateY(7.7px) rotate(45deg); 
     }
     .menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+        transform: translateY(-7.7px) rotate(-45deg);
     }
     /* --- МОБИЛЬНОЕ МЕНЮ --- */
     .main-menu {
