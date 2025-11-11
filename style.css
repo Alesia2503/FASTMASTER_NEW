@@ -6,7 +6,10 @@
     --color-blue: #1E64FF;   /* Основной синий для CTA */
     --card-bg: rgba(0, 0, 0, 0.4);
     --header-link-color: #FFFFFF; /* Цвет ссылок в шапке (белый) */
-    --social-color: #9370DB; /* Фиолетовый/пурпурный цвет для соцсетей */
+    /* Добавляем фирменные цвета */
+    --color-telegram: #0088CC;
+    --color-viber: #7360F2;
+    --color-instagram: #E4405F; /* Или градиент, но используем основной цвет */
     --header-height-mobile: 65px;
 }
 
@@ -76,7 +79,11 @@ body {
     display: flex;
     align-items: center;
     letter-spacing: 1px;
-    white-space: nowrap; 
+    white-space: nowrap;
+        /* Добавляем отступы справа, чтобы отделить от контактов */
+    margin-right: 25px; 
+    /* Логотип занимает свое место, не растягивается */
+    flex-shrink: 0; 
 }
 
 .logo-icon {
@@ -90,6 +97,15 @@ body {
     align-items: center;
     margin-right: 8px; 
     font-size: 18px; 
+}
+
+/* --- КОНТАКТЫ И ЛОКАЦИЯ (ТЕПЕРЬ ЦЕНТР) --- */
+.header-contact-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-grow: 1; /* Позволяем контактам занять оставшееся пространство */
+    justify-content: center; /* Центрируем контакты внутри своего блока */
 }
 
 /* --- ПРАВАЯ ЧАСТЬ (СОЦСЕТИ И БУРГЕР) --- */
@@ -107,12 +123,33 @@ body {
 }
 
 .social-icon {
-    font-size: 20px;
-    color: var(--social-color); 
-    transition: color 0.3s;
+    font-size: 24px; /* Увеличиваем размер для лучшей видимости */
+    transition: transform 0.2s, opacity 0.3s;
+    text-decoration: none;
+    display: flex; /* Чтобы применить transform/hover эффект, если понадобится */
 }
+
+/* Устанавливаем фирменные цвета */
+.social-icon.telegram {
+    color: var(--color-telegram);
+}
+
+.social-icon.viber {
+    color: var(--color-viber);
+}
+
+.social-icon.instagram {
+    /* Градиентный цвет для иконки Instagram */
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #9370DB);
+    color: transparent; /* Делаем текст прозрачным */
+    -webkit-background-clip: text; /* Обрезаем фон по контуру текста (для Chrome/Safari) */
+    background-clip: text; /* Обрезаем фон по контуру текста (стандарт) */
+    -webkit-text-fill-color: transparent; /* Убеждаемся, что цвет текста прозрачный */
+}
+
 .social-icon:hover {
-    color: var(--color-yellow);
+    opacity: 0.7;
+    transform: scale(1.1);
 }
 
 /* --- НАВИГАЦИЯ И БУРГЕР --- */
@@ -413,6 +450,9 @@ body.no-scroll {
     
     .hero-section {
         padding-top: var(--header-height-mobile); 
+                /* КОРРЕКЦИЯ ФОКУСИРОВКИ ИЗОБРАЖЕНИЯ НА МОБИЛЬНЫХ */
+        /* Сдвигаем фоновое изображение влево, чтобы лицо мастера было видно */
+        background-position: 25% top;
     }
     
     .content-wrapper {
