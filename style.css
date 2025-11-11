@@ -40,9 +40,9 @@ body {
 }
 
 .header-container {
-    max-width: 1200px;
+    max-width: 1920px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
     display: flex;
     justify-content: space-between; /* Распределение элементов */
     align-items: center;
@@ -177,18 +177,28 @@ body.no-scroll {
 
 .hero-section {
     position: relative;
-    min-height: 100vh;
+    display: block; /* Важно: сбрасываем display: flex, который был ранее */
+    /* min-height: 100vh;  */
+    /* Минимальная высота - полный экран */
+    /* min-height: 100vh; */
     /* --- ПУТЬ К ИЗОБРАЖЕНИЮ В ПАПКЕ IMG --- */
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
         url('./img/bg.jpg'); 
     /* ------------------------------------------- */
-    background-size: cover;
-    background-position: center top; 
-    display: flex;
+    /* ДЕСКТОП: Уменьшение размера фона с сохранением пропорций */
+    background-size: 100% auto; /* Изначально делаем очень большим */
+    
+    /* ДЕСКТОП: Фокусировка на мастере (около 70% по горизонтали), чтобы мастер был справа */
+    background-position: 70% top; 
+    background-repeat: no-repeat;
+
+    /* background-size: cover;
+    background-position: center top;  */
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; */
 }
 
 .hero-overlay {
@@ -203,19 +213,20 @@ body.no-scroll {
 .content-wrapper {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
+    max-width: 1920px;
     margin: 0 auto;
     width: 100%;
-    padding: 150px 20px 40px 20px; /* Отступ сверху для контента */
-    display: flex;
+    padding: 90px 40px 40px 40px; /* Отступ сверху для контента */
+    display: block;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 100vh; */
 }
 
 /* Основной контент (текст и кнопки) */
 .hero-content {
-    max-width: 550px;
+    max-width: 500px;
     margin-bottom: 40px;
 }
 
@@ -258,6 +269,8 @@ body.no-scroll {
     transition: background-color 0.3s, transform 0.2s;
     text-align: center;
     white-space: nowrap;
+    min-width: 250px; /* Устанавливаем минимальную ширину для обеих кнопок */
+    box-sizing: border-box; /* Убеждаемся, что padding включен в ширину */
 }
 
 .btn-primary {
@@ -268,7 +281,6 @@ body.no-scroll {
 .btn-secondary {
     background-color: var(--color-blue);
     color: var(--color-text-light);
-    min-width: 250px; 
 }
 
 .btn:hover {
@@ -281,7 +293,7 @@ body.no-scroll {
     display: flex;
     gap: 20px;
     width: 100%;
-    margin-top: auto;
+    margin-top: 0;
 }
 
 .service-card {
@@ -450,14 +462,19 @@ body.no-scroll {
     
     .hero-section {
         padding-top: var(--header-height-mobile); 
+                /* МОБИЛЬНЫЕ: Возвращаемся к cover, чтобы заполнить экран на узком устройстве */
+        
+                background-size: cover; 
                 /* КОРРЕКЦИЯ ФОКУСИРОВКИ ИЗОБРАЖЕНИЯ НА МОБИЛЬНЫХ */
         /* Сдвигаем фоновое изображение влево, чтобы лицо мастера было видно */
-        background-position: 25% top;
+        background-position: 70% top;
     }
     
     .content-wrapper {
         padding-top: 50px; 
-        justify-content: flex-start;
+        /* justify-content: flex-start; */
+        display: block;
+        min-height: calc(100vh - var(--header-height-mobile));
     }
 
     .hero-title {
