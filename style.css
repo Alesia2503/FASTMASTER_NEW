@@ -122,6 +122,11 @@ body {
     gap: 15px;
 }
 
+.social-links-mobile {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
 .social-icon {
     font-size: 24px; /* Увеличиваем размер для лучшей видимости */
     transition: transform 0.2s, opacity 0.3s;
