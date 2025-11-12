@@ -121,3 +121,29 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset(); // Сброс формы
     });
 });
+
+
+
+// ... (Существующий код для бургер-меню и модального окна) ...
+
+/* ==================================== */
+/* ЛОГИКА ТАБОВ (ПЕРЕКЛЮЧЕНИЯ УСЛУГ) */
+/* ==================================== */
+const tabButtons = document.querySelectorAll('.tab-button');
+const serviceContents = document.querySelectorAll('.services-content');
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.dataset.target;
+
+        // 1. Сброс активного состояния кнопок
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // 2. Скрытие всего контента
+        serviceContents.forEach(content => content.classList.remove('active'));
+
+        // 3. Активация текущей кнопки и контента
+        button.classList.add('active');
+        document.getElementById(targetId).classList.add('active');
+    });
+});

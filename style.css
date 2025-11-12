@@ -466,6 +466,258 @@ body.no-scroll {
 
 
 
+/* ==================================== */
+/* БЛОК "НАШИ УСЛУГИ" */
+/* ==================================== */
+
+.services-section {
+    background-color: #f8f8f8; /* Светлый фон секции */
+    padding: 80px 0;
+    color: var(--color-dark);
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--color-dark);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+/* --- ТАБЫ ПЕРЕКЛЮЧЕНИЯ --- */
+.tabs-control {
+    display: inline-flex;
+    margin-bottom: 40px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.tab-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-dark);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    min-width: 180px;
+}
+
+.tab-button.active {
+    background-color: var(--color-blue);
+    color: var(--color-text-light);
+    box-shadow: 0 0 10px rgba(30, 100, 255, 0.5);
+}
+
+/* Стили для желтого активного таба */
+.tabs-control .tab-button:nth-child(2).active {
+    background-color: var(--color-yellow);
+    color: var(--color-dark);
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* --- СЕТКА КАРТОЧЕК --- */
+.services-content {
+    display: none; /* Скрыто по умолчанию */
+}
+
+.services-content.active {
+    display: block;
+}
+
+.service-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: left;
+}
+
+/* --- КАРТОЧКА ЦЕН --- */
+.service-price-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для СИНЕЙ КАРТОЧКИ (B2B) */
+.service-price-card.blue .card-header {
+    background-color: var(--color-blue);
+    color: var(--color-text-light);
+}
+
+.service-price-card.blue .card-icon-wrapper {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-text-light);
+}
+
+/* Стили для ЖЕЛТОЙ КАРТОЧКИ (B2C) */
+.service-price-card.yellow {
+    border: 2px solid var(--color-yellow);
+}
+
+.service-price-card.yellow .card-header {
+    background-color: var(--color-yellow);
+    color: var(--color-dark);
+}
+
+.service-price-card.yellow .card-icon-wrapper {
+    background-color: var(--color-dark);
+    color: var(--color-yellow);
+}
+
+/* --- ЗАГОЛОВОК КАРТОЧКИ --- */
+.card-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card-header .card-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.card-header .card-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* --- СПИСОК ЦЕН --- */
+.price-list {
+    list-style: none;
+    padding: 20px;
+    flex-grow: 1; /* Заполняем пространство для одинаковой высоты */
+}
+
+.price-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.price-list li:last-child {
+    border-bottom: none;
+}
+
+.price-list li span:last-child {
+    font-weight: 600;
+    color: var(--color-blue); /* Синий цвет цены по умолчанию */
+}
+
+/* Переопределение цвета цены для желтых карточек */
+.service-price-card.yellow .price-list li span:last-child {
+    color: var(--color-dark);
+}
+
+/* --- КНОПКА --- */
+.btn-full-width {
+    width: 100%;
+    padding: 15px 0;
+    margin-top: auto; /* Прижимаем кнопку к низу карточки */
+    border: none;
+    border-radius: 0 0 8px 8px; /* Скругляем только снизу */
+    font-weight: 700;
+    font-size: 16px;
+    background-color: var(--color-blue);
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-full-width:hover {
+    background-color: #1a56cc;
+}
+
+.btn-full-width.btn-yellow {
+    background-color: var(--color-yellow);
+    color: var(--color-dark);
+}
+
+.btn-full-width.btn-yellow:hover {
+    background-color: #e5b300;
+}
+
+/* ==================================== */
+/* АДАПТАЦИЯ (УСЛУГИ) */
+/* ==================================== */
+
+@media (max-width: 992px) {
+    .service-cards-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+        gap: 20px;
+    }
+    
+    .tab-button {
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 600px) {
+    .service-cards-grid {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
+    }
+    
+    .services-section {
+        padding: 50px 0;
+    }
+    
+    .tabs-control {
+        flex-direction: column;
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    .tab-button {
+        width: 100%;
+        min-width: unset;
+        border-radius: 0;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    }
+    
+    .tab-button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
 
 
 
