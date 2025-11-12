@@ -1647,3 +1647,172 @@ body.no-scroll {
         margin: 0 auto 15px auto; 
     }
 }
+
+/* ==================================== */
+/* АНИМАЦИЯ КНОПОК НА ГЛАВНОМ ЭКРАНЕ */
+/* ==================================== */
+
+/* 1. Создаем анимацию для ЖЕЛТОЙ кнопки */
+@keyframes pulse-yellow {
+    0% {
+        /* Начало: тени нет */
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+    }
+    70% {
+        /* Середина: тень расширяется и становится прозрачной */
+        box-shadow: 0 0 0 15px rgba(255, 193, 7, 0);
+    }
+    100% {
+        /* Конец: тень исчезает */
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+    }
+}
+
+/* 2. Создаем анимацию для СИНЕЙ кнопки */
+@keyframes pulse-blue {
+    0% {
+        box-shadow: 0 0 0 0 rgba(30, 100, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(30, 100, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(30, 100, 255, 0);
+    }
+}
+
+/* 3. Применяем анимацию ТОЛЬКО к кнопкам в блоке Hero */
+.hero-cta .btn-primary {
+    animation: pulse-yellow 2s infinite; /* Бесконечная анимация, 2 секунды */
+}
+
+.hero-cta .btn-secondary {
+    animation: pulse-blue 2s infinite;
+    animation-delay: 1s; /* Задержка 1 сек, чтобы они пульсировали по очереди, а не одновременно */
+}
+
+/* 4. При наведении курсора останавливаем пульсацию (чтобы не мешать клику) */
+.hero-cta .btn:hover {
+    animation: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+.tab-button {
+    /* ... (существующие стили) ... */
+    position: relative; /* Важно: для псевдоэлемента */
+    overflow: hidden;
+}
+
+.tab-button:not(.active)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-blue);
+    transform: translateX(-100%); /* Скрываем его слева */
+    transition: transform 0.3s ease-out;
+}
+
+.tab-button:not(.active):hover::after {
+    transform: translateX(0); /* Показываем при наведении */
+}
+
+/* Коррекция цвета для второй кнопки */
+.tabs-control .tab-button:nth-child(2)::after {
+    background-color: var(--color-yellow);
+}
+
+
+
+
+
+/* --- АНИМАЦИЯ CTA: ДЫХАНИЕ ТЕНИ (КАРТОЧКИ УСЛУГ) --- */
+@keyframes shadow-breathe-blue {
+    0% { box-shadow: 0 0 0 0 rgba(30, 100, 255, 0.4); } /* Начинаем с прозрачного */
+    50% { box-shadow: 0 0 20px 5px rgba(30, 100, 255, 0.9); } /* Увеличиваем радиус и непрозрачность */
+    100% { box-shadow: 0 0 0 0 rgba(30, 100, 255, 0.4); }
+}
+
+@keyframes shadow-breathe-yellow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); } /* Начинаем с прозрачного */
+    50% { box-shadow: 0 0 20px 5px rgba(255, 193, 7, 0.9); } /* Увеличиваем радиус и непрозрачность */
+    100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
+}
+
+
+
+/* ... (СТИЛИ ВАШЕГО CSS) ... */
+
+/* --- КНОПКА (ВОЗВРАТ К ОДНОЙ) --- */
+.btn-service-modal {
+    /* ... (существующие стили) ... */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    /* Убеждаемся, что у кнопки есть тень по умолчанию, чтобы "дыхание" было видно */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+
+/* АКТИВАЦИЯ АНИМАЦИИ ДЛЯ СИНЕЙ КНОПКИ (B2B) */
+.service-price-card .btn-service-modal.btn-blue {
+    animation: shadow-breathe-blue 3s infinite ease-in-out;
+}
+
+/* АКТИВАЦИЯ АНИМАЦИИ ДЛЯ ЖЕЛТОЙ КНОПКИ (B2C) */
+.service-price-card .btn-service-modal.btn-yellow {
+    animation: shadow-breathe-yellow 3s infinite ease-in-out;
+}
+
+/* Убираем анимацию при наведении на кнопки услуг */
+.service-price-card .btn-service-modal:hover {
+    animation: none;
+    transform: translateY(-2px);
+    /* Добавляем сильную тень при наведении */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+}
+
+
+
+/* ... (СТИЛИ ДЛЯ CTA) ... */
+
+.btn-primary {
+    /* ... (существующие стили) ... */
+    
+    /* УВЕЛИЧИВАЕМ СКОРОСТЬ ПУЛЬСАЦИИ */
+    animation: pulse-yellow 1.5s infinite; 
+}
+
+/* ... (СТИЛИ ДЛЯ МОДАЛКИ) ... */
+
+.modal-submit-btn {
+    /* ... (существующие стили) ... */
+    
+    /* УВЕЛИЧИВАЕМ СКОРОСТЬ ПУЛЬСАЦИИ */
+    animation: pulse-yellow 1.5s infinite; 
+    transition: all 0.3s;
+}
+
+
+/* --- АНИМАЦИЯ CTA: ПУЛЬСАЦИЯ ЖЕЛТОЙ КНОПКИ (ГЛАВНЫЙ ЭКРАН И МОДАЛКА) --- */
+@keyframes pulse-yellow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.6); /* Начинаем с более яркого цвета */
+    }
+    50% {
+        /* Увеличиваем радиус свечения и его непрозрачность */
+        box-shadow: 0 0 0 15px rgba(255, 193, 7, 0); 
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.6);
+    }
+}
