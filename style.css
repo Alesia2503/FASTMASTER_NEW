@@ -9,7 +9,8 @@
     /* Добавляем фирменные цвета */
     --color-telegram: #0088CC;
     --color-viber: #7360F2;
-    --color-instagram: #E4405F; /* Или градиент, но используем основной цвет */
+    /* --color-instagram: #E4405F;  */
+    /* Или градиент, но используем основной цвет */
     --header-height-mobile: 65px;
 }
 
@@ -238,10 +239,14 @@ body.no-scroll {
 .hero-title {
     font-size: 5vw;
     font-weight: 900;
-    color: var(--color-yellow);
+    /* color: var(--color-yellow); */
+    color: var(--color-text-light);
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+.hero-title span {
+    color: var(--color-yellow);
 }
 
 .hero-tagline {
