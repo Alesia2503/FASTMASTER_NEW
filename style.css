@@ -223,6 +223,12 @@ body.no-scroll {
     letter-spacing: 0.05em;
     line-height: 1.1;
     word-spacing: 0.1em;
+
+/* НОВЫЙ ЭФФЕКТ: МЯГКАЯ, РАЗМЫТАЯ ТЕНЬ */
+        text-shadow: 
+            0 0 3px rgba(0, 0, 0, 0.4),  /* Мягкое внутреннее размытие (для белого текста) */
+            3px 3px 5px rgba(0, 0, 0, 0.5), /* Мягкий внешний слой 1 */
+            5px 5px 8px rgba(0, 0, 0, 0.4); /* Более сильный внешний слой 2 */
 }
 
 .hero-title span {
