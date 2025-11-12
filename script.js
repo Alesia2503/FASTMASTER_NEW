@@ -3,12 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==================================== */
     /* 1. ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ */
     /* ==================================== */
+    
+    // Общие
+    const body = document.body;
+    const headerElement = document.querySelector('.header');
+    const THANK_YOU_PAGE_URL = 'thank-you.html'; 
+
     // Шапка и меню
     const menuToggle = document.querySelector('.menu-toggle');
     const mainMenu = document.getElementById('main-menu');
-    const body = document.body;
     const menuCloseBtn = document.querySelector('.menu-close-btn');
-    const headerElement = document.querySelector('.header');
 
     // Модальное окно
     const modal = document.getElementById('callback-modal');
@@ -33,12 +37,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next-btn');
     let currentSlide = 1;
     const totalSlides = slides.length;
-    
-    
-    /* ==================================== */
-    /* 2. БУРГЕР МЕНЮ - ОТКРЫТИЕ/ЗАКРЫТИЕ */
-    /* ==================================== */
 
+
+    /* ==================================== */
+    /* 2. МАСКА ТЕЛЕФОНА И ВАЛИДАЦИЯ */
+    /* ==================================== */
+    
+    // Проверяем, что Inputmask доступен
+    if (typeof Inputmask !== 'undefined') {
+        
+        const phoneMask = {
+            mask: "+375 (99) 999-99-99", // Маска для Беларуси
+            placeholder: "+375 (XX) XXX-XX-XX",
+            showMaskOnHover: false,
+            showMaskOnFocus: true,
+            // Валидация: очищает поле, если маска заполнена не полностью
+            clearIncomplete: true 
+        };
+
+        const phoneInputs = [
+            document.getElementById('phone'),          
+            document.getElementById('page_phone_simple')
+        ].filter(el => el != null);
+
+        phoneInputs.forEach(input => {
+            Inputmask(phoneMask).mask(input);
+        });
+    } else {
+        console.error("Библиотека Inputmask не найдена.");
+    }
+    
+    
+    /* ==================================== */
+    /* 3. ФУНКЦИИ УТИЛИТ */
+    /* ==================================== */
+    
+    const redirectToThankYou = () => {
+        window.location.href = THANK_YOU_PAGE_URL;
+    };
+    
+    // Функция открытия/закрытия меню
     const toggleMenu = () => {
         const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
         
@@ -46,6 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
         mainMenu.classList.toggle('open');
         body.classList.toggle('no-scroll');
     };
+
+    // Функция закрытия модального окна
+    const closeModal = () => {
+        if(modal) modal.style.display = 'none';
+        body.classList.remove('no-scroll');
+        if(callbackForm) callbackForm.reset();
+    };
+
+    
+    /* ==================================== */
+    /* 4. БУРГЕР МЕНЮ И СКРОЛЛ */
+    /* ==================================== */
 
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
@@ -55,10 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuCloseBtn.addEventListener('click', toggleMenu);
     }
     
-    /* ==================================== */
-    /* 3. ПЛАВНЫЙ СКРОЛЛ И ЗАКРЫТИЕ МЕНЮ */
-    /* ==================================== */
-
+    // Плавный скролл из меню
     mainMenu.querySelectorAll('li a[data-target-id]').forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault(); 
@@ -67,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (targetElement) {
                 const headerHeight = headerElement ? headerElement.offsetHeight : 0;
-                // Скролл с учетом фиксированной шапки
                 const targetPosition = targetElement.offsetTop - headerHeight + 1; 
 
                 window.scrollTo({
@@ -85,16 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==================================== */
-    /* 4. МОДАЛЬНОЕ ОКНО И ФОРМЫ */
+    /* 5. ОБРАБОТКА ФОРМ */
     /* ==================================== */
 
-    const closeModal = () => {
-        if(modal) modal.style.display = 'none';
-        body.classList.remove('no-scroll');
-        if(callbackForm) callbackForm.reset();
-    };
-    
-    // Открытие по кнопкам
+    // Открытие модального окна
     openModalBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -103,24 +143,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Закрытие по крестику
+    // Закрытие модального окна
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', closeModal);
     }
 
-    // Закрытие по клику вне окна
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             closeModal();
         }
     });
 
-    // Обработка отправки формы модального окна (пример)
+    // Обработка отправки формы модального окна
     if (callbackForm) {
         callbackForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Заявка успешно отправлена! Мы скоро свяжемся с вами.');
             closeModal();
+            redirectToThankYou();
         });
     }
 
@@ -128,14 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pageFormSimple) {
         pageFormSimple.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Сообщение успешно отправлено! Мы скоро свяжемся с вами.');
             pageFormSimple.reset(); 
+            redirectToThankYou();
         });
     }
 
     
     /* ==================================== */
-    /* 5. ЛОГИКА ТАБОВ УСЛУГ */
+    /* 6. ЛОГИКА ТАБОВ УСЛУГ */
     /* ==================================== */
 
     tabButtons.forEach(button => {
@@ -152,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==================================== */
-    /* 6. ЛОГИКА СЛАЙДЕРА (ИМИТАЦИЯ) */
+    /* 7. ЛОГИКА СЛАЙДЕРА (ИМИТАЦИЯ) */
     /* ==================================== */
     
     const showSlide = (n) => {
@@ -192,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     /* ==================================== */
-    /* 7. ЛОГИКА КНОПКИ НАВЕРХ (Scroll-to-Top) */
+    /* 8. ЛОГИКА КНОПКИ НАВЕРХ (Scroll-to-Top) */
     /* ==================================== */
     
     const getScrollPercent = () => {
