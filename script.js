@@ -248,3 +248,33 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // ... (Существующий код для кнопки наверх) ...
 });
+
+
+
+/* ==================================== */
+/* ЛОГИКА ФОРМЫ НА СТРАНИЦЕ */
+/* ==================================== */
+const pageForm = document.getElementById('callback-form-page');
+
+if (pageForm) {
+    pageForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // ВАШ КОД ДЛЯ ОТПРАВКИ ДАННЫХ НА СЕРВЕР
+        const formData = {
+            name: document.getElementById('page_name').value,
+            surname: document.getElementById('page_surname').value,
+            phone: document.getElementById('page_phone').value,
+            email: document.getElementById('page_email').value,
+            service: document.getElementById('page_service').value,
+            message: document.getElementById('page_message').value,
+            time: document.getElementById('page_time').value,
+        };
+
+        console.log('Данные формы на странице:', formData);
+        
+        // В реальном проекте: после успешной отправки
+        alert('Сообщение успешно отправлено! Мы скоро свяжемся с вами.');
+        pageForm.reset(); 
+    });
+}

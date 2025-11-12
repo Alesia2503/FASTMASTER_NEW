@@ -429,7 +429,114 @@
     </section>
 
 
+<!-- ==================================== -->
+    <!-- БЛОК "СВЯЖИТЕСЬ С НАМИ" -->
+    <!-- ==================================== -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <p class="section-subtitle">
+                Готовы начать? Свяжитесь с нами сегодня для бесплатной консультации и расчета стоимости.
+            </p>
 
+            <div class="contact-grid">
+                
+                <!-- КОЛОНКА 1: КОНТАКТНАЯ ИНФОРМАЦИЯ -->
+                <div class="contact-info-column">
+                    
+                    <!-- Карточка контактов -->
+                    <div class="contact-info-card">
+                        <h4 class="info-heading">Как с нами связаться</h4>
+                        
+                        <div class="info-item-card">
+                            <div class="icon-circle blue"><i class="fas fa-phone"></i></div>
+                            <div class="info-details">
+                                <strong>Телефон</strong>
+                                <a href="tel:+375336522083">+375(33)652-20-83</a> <!-- НОВЫЙ НОМЕР -->
+                                <small>Доступны 24/7 для экстренных случаев</small>
+                            </div>
+                        </div>
+
+                        <div class="info-item-card">
+                            <div class="icon-circle yellow"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="info-details">
+                                <strong>Адрес</strong>
+                                <p>Мозырь, Беларусь</p>
+                                <small>Обслуживаем Мозырь и окрестности</small>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item-card">
+                            <div class="icon-circle blue"><i class="fas fa-envelope"></i></div>
+                            <div class="info-details">
+                                <strong>Электронная почта</strong>
+                                <a href="mailto:info@fastmasters.by">info@fastmasters.by</a>
+                                <small>Ответим в течение 2 часов</small>
+                            </div>
+                        </div>
+
+                        <div class="info-item-card">
+                            <div class="icon-circle yellow"><i class="fas fa-clock"></i></div>
+                            <div class="info-details">
+                                <strong>Часы работы</strong>
+                                <p>Пн-Пт: 8:00 - 20:00</p>
+                                <p>Сб-Вс: 9:00 - 18:00</p>
+                                <small>Аварийная служба доступна 24/7</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Соцсети -->
+                    <div class="contact-socials-card">
+                        <h4 class="info-heading">Мы в соцсетях</h4>
+                        <div class=" contact-socials">
+                            <!-- ТОЛЬКО Telegram, Viber, Instagram -->
+                            <a href="https://t.me/ваш_telegram" target="_blank" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
+                            <a href="viber://chat?number=%2B375336522083" target="_blank" class="social-icon viber"><i class="fab fa-viber"></i></a>
+                            <a href="https://www.instagram.com/lessia2503/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КОЛОНКА 2: ФОРМА ОБРАТНОЙ СВЯЗИ (УПРОЩЕННАЯ) -->
+                <div class="contact-form-column">
+                    <div class="contact-form-card">
+                        <h4 class="info-heading">Отправьте нам сообщение</h4>
+                        
+                        <!-- ПЕРЕИМЕНОВЫВАЕМ ID ФОРМЫ, ЧТОБЫ ИЗБЕЖАТЬ КОНФЛИКТА С МОДАЛЬНОЙ -->
+                        <form id="callback-form-page-simple" class="contact-form">
+                            
+                            <!-- Имя -->
+                            <div class="form-group">
+                                <label for="page_name_simple">Ваше имя *</label>
+                                <input type="text" id="page_name_simple" name="page_name" required placeholder="Введите ваше имя">
+                            </div>
+
+                            <!-- Номер телефона -->
+                            <div class="form-group">
+                                <label for="page_phone_simple">Ваш телефон *</label>
+                                <input type="tel" id="page_phone_simple" name="page_phone" required placeholder="+375 (XX) XXX-XX-XX">
+                            </div>
+                            
+                            <!-- Требуемая услуга -->
+                            <div class="form-group">
+                                <label for="page_service_simple">Вид услуги *</label>
+                                <select id="page_service_simple" name="page_service" required>
+                                    <option value="" disabled selected>Выберите услугу</option>
+                                    <option value="Электромонтажные работы">Электромонтажные работы</option>
+                                    <option value="Сантехнические работы">Санлектромонтажные работы</option>
+                                    <option value="Сборка мебели">Сборка мебели</option>
+                                    <option value="Консультация">Просто консультация</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-yellow modal-submit-btn">Оставить заявку</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
