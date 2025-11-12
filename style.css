@@ -129,7 +129,7 @@ body {
     margin-top: 10px;
 }
 .social-icon {
-    font-size: 24px; /* Увеличиваем размер для лучшей видимости */
+    font-size: 30px; /* Увеличиваем размер для лучшей видимости */
     transition: transform 0.2s, opacity 0.3s;
     text-decoration: none;
     display: flex; /* Чтобы применить transform/hover эффект, если понадобится */
@@ -372,6 +372,8 @@ body.no-scroll {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    /* background-color: var(--color-dark); */
+     
     padding-top: 50px;
 }
 
@@ -766,32 +768,52 @@ body.no-scroll {
 }
 
 .footer-socials .social-icon {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
+    /* Сбрасываем стили круга */
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: none; 
+    
+    /* Сохраняем Flexbox и отступ для центрирования */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
-    transition: background-color 0.3s;
+    
+    font-size: 24px; /* Увеличиваем размер */
+    margin-right: 15px; /* Промежуток между иконками */
+    transition: transform 0.2s, opacity 0.3s;
 }
 
-/* Переопределяем цвета для кругов соцсетей в футере */
+/* Стили для Telegram и Viber */
 .footer-socials .social-icon.telegram {
-    background-color: var(--color-telegram);
-    color: var(--color-text-light);
+    color: var(--color-telegram); /* #0088CC */
 }
 
 .footer-socials .social-icon.viber {
-    background-color: var(--color-viber);
-    color: var(--color-text-light);
+    color: var(--color-viber); /* #7360F2 */
 }
 
+/* Стили для Instagram (ГРАДИЕНТНЫЙ ТЕКСТ) */
 .footer-socials .social-icon.instagram {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    color: var(--color-text-light);
+    /* Градиентный цвет для иконки Instagram (как в шапке) */
+    background-image: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #495dff);
+    color: transparent; 
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
 }
 
+.footer-socials .social-icon:hover {
+    transform: none; /* Убираем transform: scale(1.1), чтобы было как в шапке */
+    opacity: 0.8;
+}
+
+/* Сбрасываем стили для внутренней иконки, чтобы она приняла цвет родителя */
+.footer-socials .social-icon i {
+    color: inherit;
+    text-shadow: none;
+    filter: none;
+}
 /* --- КОЛОНКА 2, 3, 4 (Контакты, Услуги, Часы) --- */
 .footer-heading {
     font-size: 18px;
@@ -1270,8 +1292,8 @@ body.no-scroll {
 
 .contact-socials {
     display: flex;
-    gap: 20px;
-    justify-content: center;
+    gap: 40px;
+    /* justify-content: center; */
 }
 
 /* --- ФОРМА ОБРАТНОЙ СВЯЗИ (ПРАВАЯ КОЛОНКА) --- */
@@ -1507,7 +1529,7 @@ body.no-scroll {
     
     .main-menu a {
         color: var(--color-text-light);
-        font-size: 20px;
+        font-size: 30px;
         text-decoration: none;
         display: block;
         padding: 15px 20px;

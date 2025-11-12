@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FASTMASTERS - Быстрая помощь от специалистов</title>
+    <title>FASTMASTERS</title>
     <!-- Подключение основного CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Иконки Font Awesome (для логотипа, контактов и карточек) -->
@@ -12,10 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- МОДАЛЬНОЕ ОКНО ЗАЯВКИ -->
     <!-- ==================================== -->
-    <div id="callback-modal" class="modal">
+    <!-- МОДАЛЬНОЕ ОКНО ЗАЯВКИ -->
+    <!-- ==================================== -->
+    <div id="callback-modal" class="modal">       
         <div class="modal-content">
             <span class="modal-close">&times;</span>
             <h2 class="modal-title">Оставить заявку</h2>
@@ -50,7 +50,9 @@
     </div>
 
 
-
+    <!-- ==================================== -->
+    <!-- БЛОК HEADER -->
+    <!-- ==================================== --> 
     <header class="header">
         <div class="header-container">
             
@@ -118,15 +120,21 @@
                     
                     <!-- Соцсети с привязкой к новому номеру/инстаграму -->
                     <div class="social-links-mobile">
-                         <a href="https://t.me/ваш_telegram" target="_blank" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
-                         <a href="viber://chat?number=%2B375336522083" target="_blank" class="social-icon viber"><i class="fab fa-viber"></i></a>
-                         <a href="https://www.instagram.com/lessia2503/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/ваш_telegram" target="_blank" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="viber://chat?number=%2B375336522083" target="_blank" class="social-icon viber"><i class="fab fa-viber"></i></a>
+                        <a href="https://www.instagram.com/lessia2503/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
 
+
+
+
+    <!-- ==================================== -->
+    <!-- БЛОК CONTENT -->
+    <!-- ==================================== -->     
     <main class="hero-section">
         <div class="hero-overlay"></div>
 
@@ -436,8 +444,7 @@
         <div class="contact-container">
             <h2 class="section-title">Свяжитесь с нами</h2>
             <p class="section-subtitle">
-                Готовы начать? Свяжитесь с нами сегодня для бесплатной консультации и расчета стоимости.
-            </p>
+                Готовы начать? Свяжитесь с нами сегодня для бесплатной консультации
 
             <div class="contact-grid">
                 
@@ -484,11 +491,6 @@
                                 <small>Аварийная служба доступна 24/7</small>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Соцсети -->
-                    <div class="contact-socials-card">
-                        <h4 class="info-heading">Мы в соцсетях</h4>
                         <div class=" contact-socials">
                             <!-- ТОЛЬКО Telegram, Viber, Instagram -->
                             <a href="https://t.me/ваш_telegram" target="_blank" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
@@ -496,12 +498,18 @@
                             <a href="https://www.instagram.com/lessia2503/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
+                    
+                    <!-- Соцсети -->
+                    <!-- <div class="contact-socials-card">
+                        <h4 class="info-heading">Мы в соцсетях</h4>
+                        
+                    </div> -->
                 </div>
 
                 <!-- КОЛОНКА 2: ФОРМА ОБРАТНОЙ СВЯЗИ (УПРОЩЕННАЯ) -->
                 <div class="contact-form-column">
                     <div class="contact-form-card">
-                        <h4 class="info-heading">Отправьте нам сообщение</h4>
+                        <h4 class="info-heading">Оставьте заявку и мы с Вами свяжемся</h4>
                         
                         <!-- ПЕРЕИМЕНОВЫВАЕМ ID ФОРМЫ, ЧТОБЫ ИЗБЕЖАТЬ КОНФЛИКТА С МОДАЛЬНОЙ -->
                         <form id="callback-form-page-simple" class="contact-form">
@@ -609,11 +617,10 @@
 
         <!-- КОПИРАЙТ И ПОЛИТИКИ -->
         <div class="footer-bottom-container">
-            <p class="copyright">© 2024 FASTMASTERS. Все права защищены.</p>
+            <p class="copyright">© 2025 FASTMASTERS. Все права защищены.</p>
             <div class="footer-policies">
                 <a href="#">Политика конфиденциальности</a>
-                <a href="#">Условия использования</a>
-                <span class="website-builder">Website Builder</span>
+                <a href="#">Информация предоставлена для ознакомления и не является публичной офертой</a>
             </div>
         </div>
     </footer>
@@ -623,8 +630,6 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- ... (остальной HTML) ... -->
-
     <!-- Подключение JavaScript -->
     <script src="script.js"></script>
 </body>
