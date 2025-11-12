@@ -27,6 +27,10 @@ body {
     background-color: var(--color-dark);
 }
 
+body.no-scroll .scroll-to-top {
+    display: none !important;
+}
+
 /* ==================================== */
 /* HEADER / НАВИГАЦИЯ (ДЕСКТОП) */
 /* ==================================== */
