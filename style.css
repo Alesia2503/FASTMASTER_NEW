@@ -1505,7 +1505,7 @@ body.no-scroll {
         left: 0;
         width: 100%;
         height: calc(100vh - var(--header-height-mobile));
-        background-color: rgba(0, 0, 0, 0.98);
+        background-color: var(--color-dark); 
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -1513,6 +1513,7 @@ body.no-scroll {
         transition: transform 0.4s ease-in-out;
         z-index: 99;
         overflow-y: auto;
+        padding: 0; 
     }
 
     .main-menu.open {
