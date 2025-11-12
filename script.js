@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+     /* ==================================== */
+    /* 0. АВТОМАТИЧЕСКОЕ ОБНОВЛЕНИЕ ГОДА */
+    /* ==================================== */
+    const copyrightElement = document.getElementById('current-year-copyright');
+    if (copyrightElement) {
+        const currentYear = new Date().getFullYear();
+        // Находим текст и заменяем 2025 (или любой другой год) на текущий
+        copyrightElement.textContent = copyrightElement.textContent.replace(/20\d{2}/, currentYear);
+    }
+
+
+    
     /* ==================================== */
     /* 1. ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ */
     /* ==================================== */

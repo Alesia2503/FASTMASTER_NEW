@@ -908,17 +908,35 @@ body.no-scroll {
     max-width: 1920px;
     margin: 0 auto;
     padding: 20px 20px 30px 20px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    /* 3 колонки с равномерным распределением */
+    grid-template-columns: 1fr 1fr 1fr; 
+    gap: 15px; 
     align-items: center;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+}
+
+.copyright {
+    /* Копирайт прижат влево */
+    text-align: left;
+}
+
+.footer-policies {
+    /* Политика в центре */
+    text-align: center;
+}
+
+.footer-disclaimer {
+    /* Информация прижата вправо */
+    text-align: right;
 }
 
 .footer-policies a {
     color: inherit;
     text-decoration: none;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     transition: color 0.3s;
 }
 
@@ -974,6 +992,27 @@ body.no-scroll {
     }
 }
 
+@media (max-width: 768px) {
+    /* Перестраиваем в одну колонку */
+    .footer-bottom-container {
+        grid-template-columns: 1fr; 
+        gap: 10px;
+        padding-top: 15px;
+    }
+    
+    .copyright,
+    .footer-policies,
+    .footer-disclaimer {
+        text-align: center; /* Центрируем текст на мобильных */
+    }
+
+    .footer-policies a {
+        /* Убеждаемся, что ссылки не слипаются */
+        display: block; 
+        margin: 5px 0;
+    }
+}
+
 @media (max-width: 600px) {
     .footer-top-container {
         grid-template-columns: 1fr; /* 1 колонка на мобильных */
@@ -984,7 +1023,7 @@ body.no-scroll {
         margin-bottom: 30px;
     }
     
-    .footer-bottom-container {
+    /* .footer-bottom-container {
         flex-direction: column;
         text-align: center;
         padding-top: 15px;
@@ -1001,7 +1040,7 @@ body.no-scroll {
     
     .footer-policies a, .website-builder {
         margin: 5px 0;
-    }
+    } */
 }
 
 
