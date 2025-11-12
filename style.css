@@ -6,11 +6,8 @@
     --color-blue: #1E64FF;   /* Основной синий для CTA */
     --card-bg: rgba(0, 0, 0, 0.4);
     --header-link-color: #FFFFFF; /* Цвет ссылок в шапке (белый) */
-    /* Добавляем фирменные цвета */
     --color-telegram: #0088CC;
     --color-viber: #7360F2;
-    /* --color-instagram: #E4405F;  */
-    /* Или градиент, но используем основной цвет */
     --header-height-mobile: 65px;
 }
 
@@ -36,12 +33,14 @@ body.no-scroll .scroll-to-top {
 /* ==================================== */
 
 .header {
-    position: absolute; /* Абсолютное позиционирование поверх HERO */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
     padding: 20px 0; 
+    background-color: var(--color-dark); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .header-container {
@@ -49,16 +48,17 @@ body.no-scroll .scroll-to-top {
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    justify-content: space-between; /* Распределение элементов */
+    justify-content: space-between; 
     align-items: center;
 }
 
-/* --- КОНТАКТЫ И ЛОКАЦИЯ (ЛЕВАЯ ЧАСТЬ) --- */
+/* --- КОНТАКТЫ И ЛОКАЦИЯ --- */
 .header-contact-info {
     display: flex;
     align-items: center;
     gap: 25px;
     flex-grow: 1; 
+    justify-content: center; 
 }
 
 .info-item {
@@ -75,7 +75,7 @@ body.no-scroll .scroll-to-top {
     color: var(--color-blue); 
 }
 
-/* --- ЛОГОТИП (ЦЕНТР) --- */
+/* --- ЛОГОТИП --- */
 .logo {
     font-size: 24px;
     font-weight: 900;
@@ -85,9 +85,7 @@ body.no-scroll .scroll-to-top {
     align-items: center;
     letter-spacing: 1px;
     white-space: nowrap;
-        /* Добавляем отступы справа, чтобы отделить от контактов */
     margin-right: 25px; 
-    /* Логотип занимает свое место, не растягивается */
     flex-shrink: 0; 
 }
 
@@ -102,15 +100,6 @@ body.no-scroll .scroll-to-top {
     align-items: center;
     margin-right: 8px; 
     font-size: 18px; 
-}
-
-/* --- КОНТАКТЫ И ЛОКАЦИЯ (ТЕПЕРЬ ЦЕНТР) --- */
-.header-contact-info {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    flex-grow: 1; /* Позволяем контактам занять оставшееся пространство */
-    justify-content: center; /* Центрируем контакты внутри своего блока */
 }
 
 /* --- ПРАВАЯ ЧАСТЬ (СОЦСЕТИ И БУРГЕР) --- */
@@ -133,10 +122,10 @@ body.no-scroll .scroll-to-top {
     margin-top: 10px;
 }
 .social-icon {
-    font-size: 30px; /* Увеличиваем размер для лучшей видимости */
+    font-size: 30px; 
     transition: transform 0.2s, opacity 0.3s;
     text-decoration: none;
-    display: flex; /* Чтобы применить transform/hover эффект, если понадобится */
+    display: flex; 
 }
 
 /* Устанавливаем фирменные цвета */
@@ -149,12 +138,11 @@ body.no-scroll .scroll-to-top {
 }
 
 .social-icon.instagram {
-    /* Градиентный цвет для иконки Instagram */
     background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #9370DB);
-    color: transparent; /* Делаем текст прозрачным */
-    -webkit-background-clip: text; /* Обрезаем фон по контуру текста (для Chrome/Safari) */
-    background-clip: text; /* Обрезаем фон по контуру текста (стандарт) */
-    -webkit-text-fill-color: transparent; /* Убеждаемся, что цвет текста прозрачный */
+    color: transparent; 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
 }
 
 .social-icon:hover {
@@ -164,7 +152,7 @@ body.no-scroll .scroll-to-top {
 
 /* --- НАВИГАЦИЯ И БУРГЕР --- */
 .main-menu, .menu-toggle {
-    display: none; /* Скрыты на десктопе */
+    display: none; 
 }
 
 /* Блокировка скролла при открытом меню */
@@ -181,34 +169,24 @@ body.no-scroll {
     position: relative;
     z-index: 102;
 }
+
+
+
+
+
 /* ==================================== */
 /* HERO SECTION С КАРТИНКОЙ */
 /* ==================================== */
 
 .hero-section {
     position: relative;
-    display: block; /* Важно: сбрасываем display: flex, который был ранее */
-    /* min-height: 100vh;  */
-    /* Минимальная высота - полный экран */
-    /* min-height: 100vh; */
-    /* --- ПУТЬ К ИЗОБРАЖЕНИЮ В ПАПКЕ IMG --- */
+    display: block; 
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
         url('./img/bg.jpg'); 
-    /* ------------------------------------------- */
-    /* ДЕСКТОП: Уменьшение размера фона с сохранением пропорций */
-    background-size: 100% auto; /* Изначально делаем очень большим */
-    
-    /* ДЕСКТОП: Фокусировка на мастере (около 70% по горизонтали), чтобы мастер был справа */
-    background-position: 70% top; 
+    background-size: 100% auto; 
+    padding-top: 40px; 
     background-repeat: no-repeat;
-
-    /* background-size: cover;
-    background-position: center top;  */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start; */
 }
 
 .hero-overlay {
@@ -226,12 +204,8 @@ body.no-scroll {
     max-width: 1920px;
     margin: 0 auto;
     width: 100%;
-    padding: 90px 40px 40px 40px; /* Отступ сверху для контента */
+    padding: 90px 40px 40px 40px; 
     display: block;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh; */
 }
 
 /* Основной контент (текст и кнопки) */
@@ -243,12 +217,12 @@ body.no-scroll {
 .hero-title {
     font-size: 5vw;
     font-weight: 900;
-    /* color: var(--color-yellow); */
     color: var(--color-text-light);
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
 .hero-title span {
     color: var(--color-yellow);
 }
@@ -367,7 +341,7 @@ body.no-scroll {
 /* ==================================== */
 
 .modal {
-    display: none; /* Скрыто по умолчанию */
+    display: none; 
     position: fixed; 
     z-index: 200; /* Выше шапки */
     left: 0;
@@ -375,9 +349,7 @@ body.no-scroll {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
-    /* background-color: var(--color-dark); */
-     
+    background-color: rgba(0, 0, 0, 0.8); 
     padding-top: 50px;
 }
 
@@ -1080,25 +1052,6 @@ body.no-scroll {
     .footer-column {
         margin-bottom: 30px;
     }
-    
-    /* .footer-bottom-container {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 15px;
-    }
-    
-    .copyright {
-        margin-bottom: 10px;
-    }
-    
-    .footer-policies {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .footer-policies a, .website-builder {
-        margin: 5px 0;
-    } */
 }
 
 
@@ -1645,8 +1598,7 @@ body.no-scroll {
     .hero-section {
         padding-top: var(--header-height-mobile); 
                 /* МОБИЛЬНЫЕ: Возвращаемся к cover, чтобы заполнить экран на узком устройстве */
-        
-                background-size: cover; 
+        background-size: cover; 
                 /* КОРРЕКЦИЯ ФОКУСИРОВКИ ИЗОБРАЖЕНИЯ НА МОБИЛЬНЫХ */
         /* Сдвигаем фоновое изображение влево, чтобы лицо мастера было видно */
         background-position: 70% top;
@@ -1654,7 +1606,6 @@ body.no-scroll {
     
     .content-wrapper {
         padding: 50px 15px 40px 15px; 
-        /* justify-content: flex-start; */
         display: block;
         min-height: calc(100vh - var(--header-height-mobile));
     }
