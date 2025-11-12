@@ -220,7 +220,9 @@ body.no-scroll {
     color: var(--color-text-light);
     margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    word-spacing: 0.1em;
 }
 
 .hero-title span {
@@ -1599,8 +1601,8 @@ body.no-scroll {
 
     .hero-title {
         font-size: 7vw; 
-        line-height: 1.1;
-        letter-spacing: 1px;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
         text-align: center; /* ЦЕНТРИРУЕМ ЗАГОЛОВОК */
         width: 100%;
         margin-top: 30px; 
