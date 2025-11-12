@@ -651,6 +651,56 @@ body.no-scroll {
     color: var(--color-dark);
 }
 
+/* --- КНОПКИ В КАРТОЧКЕ УСЛУГ --- */
+
+/* Контейнер для двух кнопок */
+.card-buttons {
+    display: flex;
+    width: 100%;
+    margin-top: auto; /* Прижимаем к низу карточки */
+}
+
+.btn-service-call,
+.btn-service-modal {
+    flex: 1; /* Обе кнопки занимают равное место */
+    padding: 15px 0;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+/* СИНЯЯ ВЕРСИЯ (B2B) */
+.btn-blue {
+    background-color: var(--color-blue);
+    color: var(--color-text-light);
+}
+
+.btn-blue:hover {
+    background-color: #1a56cc;
+}
+
+/* ЖЕЛТАЯ ВЕРСИЯ (B2C) */
+.btn-yellow {
+    background-color: var(--color-yellow);
+    color: var(--color-dark);
+}
+
+.btn-yellow:hover {
+    background-color: #e5b300;
+}
+
+/* КОРРЕКТИРОВКА BORDER-RADIUS для крайних кнопок */
+.service-price-card .card-buttons {
+    /* Общие стили для контейнера кнопок */
+    border-radius: 0 0 8px 8px; 
+    overflow: hidden; /* Обрезает углы, чтобы они были внутри карточки */
+}
+
+
 /* --- КНОПКА --- */
 .btn-full-width {
     width: 100%;

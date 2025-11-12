@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-     /* ==================================== */
+    /* ==================================== */
     /* 0. АВТОМАТИЧЕСКОЕ ОБНОВЛЕНИЕ ГОДА */
     /* ==================================== */
     const copyrightElement = document.getElementById('current-year-copyright');
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    
     /* ==================================== */
     /* 1. ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ */
     /* ==================================== */
@@ -55,15 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 2. МАСКА ТЕЛЕФОНА И ВАЛИДАЦИЯ */
     /* ==================================== */
     
-    // Проверяем, что Inputmask доступен
     if (typeof Inputmask !== 'undefined') {
         
         const phoneMask = {
-            mask: "+375 (99) 999-99-99", // Маска для Беларуси
+            mask: "+375 (99) 999-99-99",
             placeholder: "+375 (XX) XXX-XX-XX",
             showMaskOnHover: false,
             showMaskOnFocus: true,
-            // Валидация: очищает поле, если маска заполнена не полностью
             clearIncomplete: true 
         };
 
@@ -104,7 +101,48 @@ document.addEventListener('DOMContentLoaded', () => {
         if(callbackForm) callbackForm.reset();
     };
 
-    
+    // НОВАЯ ФУНКЦИЯ ОТКРЫТИЯ МОДАЛЬНОГО ОКНА С АВТОЗАПОЛНЕНИЕМ
+    const openModal = (e) => {
+        e.preventDefault();
+        
+        if(modal) modal.style.display = 'block';
+        body.classList.add('no-scroll');
+
+        // --- ЛОГИКА АВТОЗАПОЛНЕНИЯ УСЛУГИ ---
+        const serviceName = e.currentTarget.getAttribute('data-service-name');
+        const serviceSelect = document.getElementById('service');
+        
+        if (serviceSelect && serviceName) {
+            let optionExists = false;
+            
+            // Сначала удаляем временные опции, если они были
+            Array.from(serviceSelect.options).forEach(option => {
+                if (option.getAttribute('data-temp')) {
+                    option.remove();
+                }
+            });
+
+            // Проверяем, есть ли такой пункт в SELECT (по значению)
+            Array.from(serviceSelect.options).forEach(option => {
+                if (option.value === serviceName) {
+                    optionExists = true;
+                    option.selected = true; // Выбираем существующий пункт
+                }
+            });
+            
+            // Если такого пункта нет, добавляем его временно и выбираем
+            if (!optionExists) {
+                const newOption = document.createElement('option');
+                newOption.value = serviceName;
+                newOption.textContent = serviceName;
+                newOption.selected = true;
+                newOption.setAttribute('data-temp', 'true'); // Метка для удаления
+                serviceSelect.appendChild(newOption);
+            }
+        }
+    };
+
+
     /* ==================================== */
     /* 4. БУРГЕР МЕНЮ И СКРОЛЛ */
     /* ==================================== */
@@ -134,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
             
-            // Закрываем меню
             if (mainMenu.classList.contains('open')) {
                 toggleMenu();
             }
@@ -146,13 +183,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 5. ОБРАБОТКА ФОРМ */
     /* ==================================== */
 
-    // Открытие модального окна
+    // Открытие модального окна (ИСПОЛЬЗУЕМ НОВУЮ ФУНКЦИЮ)
     openModalBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if(modal) modal.style.display = 'block';
-            body.classList.add('no-scroll');
-        });
+        btn.addEventListener('click', openModal);
     });
 
     // Закрытие модального окна
