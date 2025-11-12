@@ -101,43 +101,58 @@ document.addEventListener('DOMContentLoaded', () => {
         if(callbackForm) callbackForm.reset();
     };
 
-    // НОВАЯ ФУНКЦИЯ ОТКРЫТИЯ МОДАЛЬНОГО ОКНА С АВТОЗАПОЛНЕНИЕМ
+    // НОВАЯ ФУНКЦИЯ ОТКРЫТИЯ МОДАЛЬНОГО ОКНА С АВТОЗАПОЛНЕНИЕМ И БЛОКИРОВКОЙ
     const openModal = (e) => {
         e.preventDefault();
         
         if(modal) modal.style.display = 'block';
         body.classList.add('no-scroll');
 
-        // --- ЛОГИКА АВТОЗАПОЛНЕНИЯ УСЛУГИ ---
+        // --- ЛОГИКА АВТОЗАПОЛНЕНИЯ УСЛУГИ И БЛОКИРОВКИ ---
         const serviceName = e.currentTarget.getAttribute('data-service-name');
         const serviceSelect = document.getElementById('service');
         
-        if (serviceSelect && serviceName) {
-            let optionExists = false;
+        if (serviceSelect) {
             
-            // Сначала удаляем временные опции, если они были
+            // 1. Сброс предыдущих временных опций
             Array.from(serviceSelect.options).forEach(option => {
                 if (option.getAttribute('data-temp')) {
                     option.remove();
                 }
             });
-
-            // Проверяем, есть ли такой пункт в SELECT (по значению)
-            Array.from(serviceSelect.options).forEach(option => {
-                if (option.value === serviceName) {
-                    optionExists = true;
-                    option.selected = true; // Выбираем существующий пункт
-                }
-            });
             
-            // Если такого пункта нет, добавляем его временно и выбираем
-            if (!optionExists) {
-                const newOption = document.createElement('option');
-                newOption.value = serviceName;
-                newOption.textContent = serviceName;
-                newOption.selected = true;
-                newOption.setAttribute('data-temp', 'true'); // Метка для удаления
-                serviceSelect.appendChild(newOption);
+            // 2. Логика автозаполнения, если клик был по кнопке услуги
+            if (serviceName) {
+                let optionExists = false;
+                
+                // Проверяем, есть ли такой пункт в SELECT
+                Array.from(serviceSelect.options).forEach(option => {
+                    if (option.value === serviceName) {
+                        optionExists = true;
+                        option.selected = true; // Выбираем существующий пункт
+                    }
+                });
+                
+                // Если такого пункта нет, добавляем его временно и выбираем
+                if (!optionExists) {
+                    const newOption = document.createElement('option');
+                    newOption.value = serviceName;
+                    newOption.textContent = serviceName;
+                    newOption.selected = true;
+                    newOption.setAttribute('data-temp', 'true'); // Метка для удаления
+                    serviceSelect.appendChild(newOption);
+                }
+                
+                // БЛОКИРУЕМ ВЫБОР
+                serviceSelect.disabled = true;
+                serviceSelect.style.backgroundColor = '#f3f3f3';
+
+            } else {
+                // Если клик был по обычной кнопке (например, в Hero-секции), разблокируем
+                serviceSelect.disabled = false;
+                serviceSelect.style.backgroundColor = 'white';
+                // Сбрасываем выбор на "Выберите услугу"
+                serviceSelect.value = ''; 
             }
         }
     };
@@ -183,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* 5. ОБРАБОТКА ФОРМ */
     /* ==================================== */
 
-    // Открытие модального окна (ИСПОЛЬЗУЕМ НОВУЮ ФУНКЦИЮ)
+    // Открытие модального окна (ИСПОЛЬЗУЕМ НОВУЮ ФУНКЦИЮ openModal)
     openModalBtns.forEach(btn => {
         btn.addEventListener('click', openModal);
     });

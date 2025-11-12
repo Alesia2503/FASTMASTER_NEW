@@ -444,20 +444,28 @@ body.no-scroll {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
     box-sizing: border-box;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, background-color 0.3s; /* Добавляем переход для bg-color */
 }
 
 .form-group input:focus,
 .form-group select:focus {
     border-color: var(--color-blue);
     outline: none;
+}
+
+/* Стилизация заблокированного поля */
+.form-group select:disabled {
+    cursor: not-allowed;
+    background-color: #f3f3f3 !important; /* Убеждаемся, что фон серый */
+    color: #555;
 }
 
 .modal-submit-btn {
