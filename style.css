@@ -1619,10 +1619,10 @@ body.no-scroll {
 
     /* --- 2. ТЕКСТ (ЦЕНТРИРОВАН) --- */
     .hero-description {
-        font-size: 3vw;
+        font-size: 4vw;
         line-height: 1.4;
         margin-bottom: 20px; 
-        margin-top: 120px;
+        margin-top: 100px;
         color: rgba(255, 255, 255, 0.9);
         max-width: 100%; 
         width: 100%;
