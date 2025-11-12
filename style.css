@@ -231,7 +231,7 @@ body.no-scroll {
 
 /* Основной контент (текст и кнопки) */
 .hero-content {
-    max-width: 500px;
+    max-width: 1000px;
     margin-bottom: 40px;
 }
 
@@ -471,11 +471,54 @@ body.no-scroll {
 
 
 
-
 /* ==================================== */
 /* MOBILE ADAPTATION (<= 768px) */
 /* ==================================== */
-
+@media (max-width: 1200px) {
+    .hero-content {
+    max-width: 700px;
+}
+}
+@media (max-width: 800px) {
+    .hero-content {
+    max-width: 600px;
+}
+}
+@media (max-width: 768px) {
+    .hero-content {
+    max-width: 430px;
+}
+}
+@media (max-width: 678px) {
+    .hero-content {
+    max-width: 380px;
+}
+}
+@media (max-width: 600px) {
+    .hero-content {
+    max-width: 335px;
+}
+}
+@media (max-width: 521px) {
+    .hero-content {
+    max-width: 300px;
+}
+}
+@media (max-width: 464px) {
+    .hero-content {
+    max-width: 270px;
+}
+}
+@media (max-width: 415px) {
+    .hero-content {
+    max-width: 250px;
+}
+}
+@media (max-width: 382px) {
+    .hero-content {
+    max-width: 220px;
+}
+}
 @media (max-width: 768px) {
     
     .header {
@@ -486,6 +529,7 @@ body.no-scroll {
 
     .header-container {
         justify-content: space-between; /* Лого слева, Бургер справа */
+        padding: 0 15px;
     }
 
     /* Скрываем десктопные элементы */
@@ -597,14 +641,14 @@ body.no-scroll {
     }
     
     .content-wrapper {
-        padding-top: 50px; 
+        padding: 50px 15px 40px 15px; 
         /* justify-content: flex-start; */
         display: block;
         min-height: calc(100vh - var(--header-height-mobile));
     }
 
     .hero-title {
-        font-size: 10vw;
+        font-size: 9vw;
     }
 
     .hero-tagline {
