@@ -182,3 +182,69 @@ scrollToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+
+
+
+// ... (Существующий код для бургер-меню, модального окна, табов и кнопки наверх) ...
+
+/* ==================================== */
+/* ЛОГИКА СЛАЙДЕРА (ИМИТАЦИЯ) */
+/* ==================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (Существующий код) ...
+
+        const slides = document.querySelectorAll('.project-slide');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentSlide = 1;
+    const totalSlides = slides.length; // Автоматически равно 8
+
+    const showSlide = (n) => {
+        // Убеждаемся, что n находится в пределах
+        if (n > totalSlides) {
+            n = 1;
+        }
+        if (n < 1) {
+            n = totalSlides;
+        }
+
+        // Скрываем все слайды и деактивируем все точки
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Показываем текущий слайд и активируем точку
+        slides[n - 1].classList.add('active');
+        dots[n - 1].classList.add('active');
+        currentSlide = n;
+    };
+
+    const nextSlide = () => {
+        showSlide(currentSlide + 1);
+    };
+
+    const prevSlide = () => {
+        showSlide(currentSlide - 1);
+    };
+
+    // Привязка событий к кнопкам
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Привязка событий к точкам
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            // Используем индекс в массиве точек
+            const index = Array.from(dots).indexOf(dot) + 1;
+            showSlide(index);
+        });
+    });
+
+    // Инициализация
+    if (slides.length > 0) {
+        showSlide(currentSlide);
+    }
+    
+    // ... (Существующий код для кнопки наверх) ...
+});
