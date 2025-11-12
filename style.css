@@ -725,6 +725,266 @@ body.no-scroll {
 
 
 
+/* ==================================== */
+/* БЛОК FOOTER */
+/* ==================================== */
+
+.footer {
+    background-color: #171b26; /* Темно-синий фон */
+    color: var(--color-text-light);
+}
+
+.footer-top-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-column {
+    /* Общие стили для колонок */
+}
+
+/* --- КОЛОНКА 1 (О компании) --- */
+.footer-about .logo {
+    color: var(--color-yellow);
+    margin-bottom: 15px;
+    display: inline-flex;
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-socials .social-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+/* Переопределяем цвета для кругов соцсетей в футере */
+.footer-socials .social-icon.telegram {
+    background-color: var(--color-telegram);
+    color: var(--color-text-light);
+}
+
+.footer-socials .social-icon.viber {
+    background-color: var(--color-viber);
+    color: var(--color-text-light);
+}
+
+.footer-socials .social-icon.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: var(--color-text-light);
+}
+
+/* --- КОЛОНКА 2, 3, 4 (Контакты, Услуги, Часы) --- */
+.footer-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-yellow);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Контакты */
+.footer-contacts .contact-item {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.footer-contacts .contact-item i {
+    margin-right: 10px;
+    color: var(--color-yellow);
+    font-size: 16px;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Ссылки (Наши услуги) */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li a {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.footer-links li a:hover {
+    color: var(--color-yellow);
+}
+
+/* Часы работы */
+.hours-list p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.hours-list span:first-child {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hours-list span:last-child {
+    color: var(--color-yellow);
+    font-weight: 600;
+}
+
+.emergency-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333333;
+    color: var(--color-yellow);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.emergency-btn i {
+    margin-right: 8px;
+}
+
+.emergency-btn:hover {
+    background-color: #444444;
+}
+
+
+/* --- НИЖНЯЯ ПАНЕЛЬ (КОПИРАЙТ) --- */
+.footer-bottom-container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 20px 20px 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-policies a {
+    color: inherit;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.footer-policies a:hover {
+    color: var(--color-yellow);
+}
+
+.website-builder {
+    margin-left: 20px;
+}
+
+/* ==================================== */
+/* КНОПКА НАВЕРХ */
+/* ==================================== */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--color-yellow);
+    color: var(--color-dark);
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    font-size: 18px;
+    z-index: 150;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-2px);
+    background-color: #e5b300;
+}
+
+
+/* ==================================== */
+/* АДАПТАЦИЯ FOOTER */
+/* ==================================== */
+
+@media (max-width: 992px) {
+    .footer-top-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-top-container {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
+        padding: 40px 20px;
+    }
+    
+    .footer-column {
+        margin-bottom: 30px;
+    }
+    
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 15px;
+    }
+    
+    .copyright {
+        margin-bottom: 10px;
+    }
+    
+    .footer-policies {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer-policies a, .website-builder {
+        margin: 5px 0;
+    }
+}
+
+
+
+
+
+
 
 
 

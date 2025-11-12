@@ -147,3 +147,38 @@ tabButtons.forEach(button => {
         document.getElementById(targetId).classList.add('active');
     });
 });
+
+
+
+
+
+// ... (Существующий код для бургер-меню, модального окна и табов) ...
+
+/* ==================================== */
+/* ЛОГИКА КНОПКИ НАВЕРХ (Scroll-to-Top) */
+/* ==================================== */
+const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+// Функция для определения, на сколько процентов прокручен экран
+const getScrollPercent = () => {
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    return (window.scrollY / scrollHeight) * 100;
+};
+
+// Обработчик прокрутки
+window.addEventListener('scroll', () => {
+    // Показать кнопку, когда прокручено более 50%
+    if (getScrollPercent() > 50) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+});
+
+// Обработчик нажатия
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
