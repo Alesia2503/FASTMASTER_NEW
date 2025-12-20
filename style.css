@@ -243,9 +243,9 @@ body.no-scroll {
 }
 
 .hero-description {
-    font-size: 16px;
+    font-size: 1.5vw;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.2;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 30px;
     margin-top: 30px;
@@ -300,7 +300,7 @@ body.no-scroll {
     padding: 30px 20px;
     border-radius: 5px;
     text-align: left;
-    min-height: 200px;
+    min-height: 150px;
     transition: background-color 0.3s;
 }
 
@@ -473,7 +473,7 @@ body.no-scroll {
 }
 
 .services-container {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
@@ -547,6 +547,20 @@ body.no-scroll {
     text-align: left;
 }
 
+
+
+
+/* Если только 1 элемент - занимает всю ширину */
+.service-cards-grid > *:first-child:last-child {
+  grid-column: span 3;
+}
+
+/* Если 2 элемента - каждый занимает по 50% */
+.service-cards-grid > *:first-child:nth-last-child(2),
+.service-cards-grid > *:first-child:nth-last-child(2) ~ * {
+  grid-column: span 1.5;
+}
+
 /* --- КАРТОЧКА ЦЕН --- */
 .service-price-card {
     background-color: #fff;
@@ -556,6 +570,7 @@ body.no-scroll {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    /* max-width: 500px; */
 }
 
 .service-price-card:hover {
@@ -719,6 +734,8 @@ body.no-scroll {
     background-color: #e5b300;
 }
 
+
+
 /* ==================================== */
 /* АДАПТАЦИЯ (УСЛУГИ) */
 /* ==================================== */
@@ -785,7 +802,7 @@ body.no-scroll {
     margin: 0 auto;
     padding: 60px 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1440,7 +1457,11 @@ body.no-scroll {
 }
 
 
-
+@media (min-width: 1590px) {
+    .hero-content {
+    max-width: 1300px;
+    }
+}
 
 
 
@@ -1611,8 +1632,8 @@ body.no-scroll {
         letter-spacing: 0.05em;
         text-align: center; /* ЦЕНТРИРУЕМ ЗАГОЛОВОК */
         width: 100%;
-        margin-top: 30px; 
-        margin-bottom: 80px;
+        margin-top: 2vh; 
+        margin-bottom: 10vh;
     }
 
     /* --- 1. КНОПКИ (ПРИЖАТЫ СЛЕВА) --- */
@@ -1649,9 +1670,9 @@ body.no-scroll {
         text-align: center; 
     }
 
-    .card-icon-wrapper {
+    /* .card-icon-wrapper {
         margin: 0 auto 15px auto; 
-    }
+    } */
 }
 
 /* ==================================== */
@@ -1804,5 +1825,39 @@ body.no-scroll {
     }
     100% {
         box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .hero-section {
+        background-size: cover !important; /* Ключевое изменение */
+        background-position: center !important;
+        min-height: 5vh !important; /* Гарантируем полную высоту */
+        padding-bottom: 1vh !important; /* Дополнительный отступ снизу */
+        position: relative;
+    }
+    
+    /* Создаем градиентный переход внизу для плавного фон */
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.95) 100%);
+        z-index: 1;
+    }
+    
+    /* Помещаем контент поверх градиента */
+    .hero-section > * {
+        position: relative;
+        z-index: 2;
+    }
+    
+    /* Если хедер fixed - компенсируем его высоту */
+    body {
+        padding-top: 0 !important;
     }
 }
