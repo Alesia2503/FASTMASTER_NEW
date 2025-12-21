@@ -649,6 +649,7 @@ body.no-scroll {
 .price-list li span:last-child {
     font-weight: 600;
     color: var(--color-blue); /* Синий цвет цены по умолчанию */
+    text-align: end;
 }
 
 /* Переопределение цвета цены для желтых карточек */
