@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FASTMASTERS</title>
-    <!-- Подключение основного CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Иконки Font Awesome (для логотипа, контактов и карточек) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Для современного и красивого шрифта (Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -38,10 +35,10 @@
                     <select id="service" name="service" required>
                         <option value="" disabled selected>Выберите услугу</option>
                         <option value="Электромонтажные работы">Электромонтажные работы</option>
-                        <option value="Электромонтажные работы_1">Электрика для дома</option>
-                        <option value="Сантехнические работы">Сантехнические работы</option>
+                        <option value="Электрика для дома">Электрика для дома</option>
+                        <!-- <option value="Сантехнические работы">Сантехнические работы</option>
                         <option value="Сборка мебели">Сборка мебели</option>
-                        <option value="Консультация">Просто консультация</option>
+                        <option value="Консультация">Просто консультация</option> -->
                     </select>
                 </div>
                 
@@ -57,7 +54,7 @@
     <header class="header">
         <div class="header-container">
             
-        <!-- 1. Логотип (Теперь слева) -->
+        <!-- 1. Логотип -->
         <a href="#" class="logo">
             <span class="logo-icon logo-icon-svg">
                 <i class="fas fa-screwdriver-wrench"></i> 
@@ -65,7 +62,7 @@
             FASTMASTERS
         </a>
         
-        <!-- 2. Контакты и Локация (Теперь в центре) -->
+        <!-- 2. Контакты и Локация -->
         <div class="header-contact-info">
             <a href="tel:+375336522083" class="info-item">
                 <i class="fas fa-phone"></i> +375(33)652-20-83
@@ -106,10 +103,10 @@
                 <div class="mobile-menu-footer">
                     <!-- Блок с номером телефона -->
                     <a href="tel:+375336522083" class="btn btn-secondary mobile-phone-btn">
-                        Позвонить <!-- НОВЫЙ НОМЕР -->
+                        Позвонить 
                     </a>
                     
-                    <!-- Соцсети с привязкой к новому номеру/инстаграму -->
+                    <!-- Соцсети с привязкой к номеру/инстаграму -->
                     <div class="social-links-mobile">
                         <a href="https://t.me/ales_shik" target="_blank" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
                         <a href="viber://chat?number=%2B375336522083" target="_blank" class="social-icon viber"><i class="fab fa-viber"></i></a>
@@ -135,40 +132,35 @@
                     <a href="tel:+375331111111" class="btn btn-secondary">Позвонить</a>
                 </div>
                 <p class="hero-description">
-                    Профессиональные электрики в Мозыре. Надежный сервис, конкурентные цены и 
+                    Профессиональные электрики в Мозыре. Надежный сервис, высокий профессионализм и 
                     гарантия качества на все электромонтажные работы.
                 </p>
             </div>
 
             <div class="service-cards-wrapper">
                 
-                <!-- 1. Электромонтажные работы: Убрана цифра 4, активирована молния -->
+                <!-- 1. Оплата по факту выполнения работ -->
                 <div class="service-card">
                     <div class="card-icon-wrapper yellow">
-                        <!-- Убрано <span>4</span> -->
-                        <i class="fas fa-bolt"></i> 
+                        <i class="fas fa-money-check-alt"></i>
                     </div>
                     <p class="card-title">Оплата по факту выполнения работ</p>
-                    
                 </div>
 
-                <!-- 2. Сантехнические работы: Без изменений, там была только капля -->
+                <!-- 2. Заключение официального договора -->
                 <div class="service-card">
                     <div class="card-icon-wrapper blue">
-                        <i class="fas fa-tint"></i>
+                        <i class="fas fa-file-contract"></i>
                     </div>
                     <p class="card-title">Заключение официального договора</p>
-                   
                 </div>
 
-                <!-- 3. Сборка мебели: Убрана цифра 1, активированы инструменты -->
+                <!-- 3. Гарантия на все виды работ -->
                 <div class="service-card">
                     <div class="card-icon-wrapper yellow">
-                        
-                        <i class="fas fa-screwdriver-wrench"></i> 
+                        <i class="fas fa-shield-alt"></i>
                     </div>
                     <p class="card-title">Гарантия на все виды работ</p>
-                   
                 </div>
 
             </div>
@@ -184,8 +176,7 @@
         <div class="services-container">
             <h2 class="section-title">Наши услуги</h2>
             <p class="section-subtitle">
-                Профессиональные услуги для бизнеса и частных лиц. Качественная работа, 
-                конкурентные цены и надежные специалисты.
+                Профессиональные услуги для бизнеса и частных лиц. Качественная работа и надежные специалисты.
             </p>
             
             <!-- Табы переключения -->
@@ -343,73 +334,41 @@
                 <!-- 1. Слайд (АКТИВНЫЙ) -->
                 <div class="project-slide active" data-slide="1">
                     <img src="./img/1.png" alt="Установка современного электрощита" class="project-image">
-                    <div class="slide-overlay">
-                        <!-- <span class="slide-tag">Электрика</span>
-                        <h3 class="slide-title">Установка современного электрощита</h3> -->
-                    </div>
                 </div>
                 
                 <!-- 2. Слайд -->
                 <div class="project-slide" data-slide="2">
                     <img src="./img/9.png" alt="Монтаж водоснабжения" class="project-image">
-                    <div class="slide-overlay">
-                        <!-- <span class="slide-tag">Сантехника</span>
-                        <h3 class="slide-title">Комплексный монтаж водоснабжения</h3> -->
-                    </div>
                 </div>
 
                 <!-- 3. Слайд -->
                 <div class="project-slide" data-slide="3">
                     <img src="./img/3.png" alt="Ремонт электропроводки" class="project-image">
-                    <div class="slide-overlay">
-                        <!-- <span class="slide-tag">Электрика</span>
-                        <h3 class="slide-title">Замена старой электропроводки</h3> -->
-                    </div>
                 </div>
                 
                 <!-- 4. Слайд -->
                 <div class="project-slide" data-slide="4">
                     <img src="./img/4.png" alt="Установка душевой кабины" class="project-image">
-                    <div class="slide-overlay">
-                        <!-- <span class="slide-tag">Сантехника</span>
-                        <h3 class="slide-title">Профессиональная установка душевой кабины</h3> -->
-                    </div>
                 </div>
 
                 <!-- 5. Слайд -->
                 <div class="project-slide" data-slide="5">
                     <img src="./img/10.png" alt="Сборка кухонного гарнитура" class="project-image">
-                    <div class="slide-overlay">
-                        <!-- <span class="slide-tag">Сборка мебели</span>
-                        <h3 class="slide-title">Монтаж и сборка кухонного гарнитура</h3> -->
-                    </div>
                 </div>
                 
                 <!-- 6. Слайд -->
                 <div class="project-slide" data-slide="6">
                     <img src="./img/8.png" alt="Монтаж системы умный дом" class="project-image">
-                    <div class="slide-overlay">
-                        <!-- <span class="slide-tag">Электрика</span>
-                        <h3 class="slide-title">Интеграция системы "Умный дом"</h3> -->
-                    </div>
                 </div>
                 
                 <!-- 7. Слайд -->
                 <div class="project-slide" data-slide="7">
                     <img src="./img/6.png" alt="Ремонт протечек в трубах" class="project-image">
-                    <div class="slide-overlay">
-                        <!-- <span class="slide-tag">Сантехника</span>
-                        <h3 class="slide-title">Срочное устранение сложных протечек</h3> -->
-                    </div>
                 </div>
                 
                 <!-- 8. Слайд -->
                 <div class="project-slide" data-slide="8">
                     <img src="./img/2.png" alt="Сборка офисной мебели" class="project-image">
-                    <div class="slide-overlay">
-                        <!-- <span class="slide-tag">Сборка мебели</span>
-                        <h3 class="slide-title">Сборка мебели для нового офиса</h3> -->
-                    </div>
                 </div>
                 
                 <!-- Стрелки навигации -->
@@ -524,10 +483,10 @@
                                 <select id="page_service_simple" name="page_service" required>
                                     <option value="" disabled selected>Выберите услугу</option>
                                     <option value="Электромонтажные работы">Электромонтажные работы</option>
-                                    <option value="Электромонтажные работы_1">Электрика для дома</option>
-                                    <option value="Сантехнические работы">Сантехнические работы</option>
+                                    <option value="Электрика для дома">Электрика для дома</option>
+                                    <!-- <option value="Сантехнические работы">Сантехнические работы</option>
                                     <option value="Сборка мебели">Сборка мебели</option>
-                                    <option value="Консультация">Просто консультация</option>
+                                    <option value="Консультация">Просто консультация</option> -->
                                 </select>
                             </div>
                             
@@ -569,41 +528,39 @@
 
             <!-- 2. КОНТАКТНАЯ ИНФОРМАЦИЯ -->
             <div class="footer-column footer-contacts">
-                <h4 class="footer-heading">Контактная информация</h4>
-                <a href="tel:+375336522083" class="contact-item">
-                    <i class="fas fa-phone"></i> +375(33)652-20-83 <!-- НОВЫЙ НОМЕР -->
-                </a>
-                <a href="mailto:info@fastmasters.by" class="contact-item">
-                    <i class="fas fa-envelope"></i> info@fastmasters.by
-                </a>
+                <h4 class="footer-heading">Реквизиты организации</h4>
                 <p class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i> Мозырь, Беларусь
+                    <i class="fas fa-building"></i> ООО "БурЭнерджи" УНП: 193854896
                 </p>
+                <!-- <p class="contact-item">
+                    <i class="fas fa-barcode"></i> УНП: 193854896
+                </p> -->
+                <p class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i> г. Минск, пер. Можайского 3-й, д.11, пом.109
+                </p>
+                <a href="tel:+375336522083" class="contact-item">
+                    <i class="fas fa-phone"></i> +375(33)652-20-83 
+                </a>
+                <a href="mailto:burenerdgy@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> burenerdgy@gmail.com
+                </a>
             </div>
 
             <!-- 3. НАШИ УСЛУГИ -->
-            <!-- <div class="footer-column footer-services">
-                <h4 class="footer-heading">Наши услуги</h4>
+            <div class="footer-column footer-services">
+                <h4 class="footer-heading">Наши услуги в Мозыре</h4>
                 <ul class="footer-links">
                     <li><a href="#">Электромонтажные работы</a></li>
-                    <li><a href="#">Сантехнические услуги</a></li>
-                    <li><a href="#">Сборка мебели</a></li>
-                    <li><a href="#">Аварийный ремонт</a></li>
-                    <li><a href="#">Обслуживание дома</a></li>
+                    <li><a href="#">Электрика для дома</a></li>
                 </ul>
-            </div> -->
+            </div>
 
             <!-- 4. ЧАСЫ РАБОТЫ И АВАРИЙНАЯ СЛУЖБА -->
             <div class="footer-column footer-hours">
                 <h4 class="footer-heading">Часы работы</h4>
                 <div class="hours-list">
                     <p><span>Понедельник - Воскресенье:</span> <span>9:00 - 21:00</span></p>
-                    <!-- <p><span>Суббота:</span> <span>9:00 - 18:00</span></p>
-                    <p><span>Воскресенье:</span> <span>9:00 - 18:00</span></p> -->
                 </div>
-                <!-- <button class="emergency-btn">
-                    <i class="fas fa-exclamation-triangle"></i> Аварийная служба 24/7
-                </button> -->
             </div>
             
         </div>
@@ -615,7 +572,12 @@
             
             <!-- 2. Политика -->
             <div class="footer-policies">
-                <a href="#">Политика конфиденциальности</a>
+                <a href="/politika-konfidencialnosti/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Политика конфиденциальности FASTMASTERS">
+                    Политика конфиденциальности
+                </a>
             </div>
             
             <!-- 3. Информация -->

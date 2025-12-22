@@ -803,7 +803,7 @@ body.no-scroll {
     margin: 0 auto;
     padding: 60px 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -889,7 +889,7 @@ body.no-scroll {
 .footer-contacts .contact-item {
     display: flex;
     align-items: center;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 15px;
     font-size: 15px;
@@ -930,7 +930,7 @@ body.no-scroll {
 }
 
 .hours-list span:first-child {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .hours-list span:last-child {
@@ -1142,7 +1142,7 @@ body.no-scroll {
 }
 
 /* --- ОВЕРЛЕЙ (ТЕКСТ ИЗ СЛАЙДА) --- */
-.slide-overlay {
+/* .slide-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1151,9 +1151,9 @@ body.no-scroll {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
     color: var(--color-text-light);
     text-align: left;
-}
+} */
 
-.slide-tag {
+/* .slide-tag {
     display: inline-block;
     background-color: var(--color-yellow);
     color: var(--color-dark);
@@ -1162,13 +1162,13 @@ body.no-scroll {
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 10px;
-}
+} */
 
-.slide-title {
+/* .slide-title {
     font-size: 24px;
     font-weight: 700;
     color: var(--color-text-light);
-}
+} */
 
 /* --- СТРЕЛКИ НАВИГАЦИИ --- */
 .slider-nav {
