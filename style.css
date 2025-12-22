@@ -223,24 +223,22 @@ body.no-scroll {
     letter-spacing: 0.05em;
     line-height: 1.1;
     word-spacing: 0.1em;
-
-/* НОВЫЙ ЭФФЕКТ: МЯГКАЯ, РАЗМЫТАЯ ТЕНЬ */
-        text-shadow: 
-            0 0 3px rgba(0, 0, 0, 0.4),  /* Мягкое внутреннее размытие (для белого текста) */
-            3px 3px 5px rgba(0, 0, 0, 0.5), /* Мягкий внешний слой 1 */
-            5px 5px 8px rgba(0, 0, 0, 0.4); /* Более сильный внешний слой 2 */
+    text-shadow: 
+        0 0 3px rgba(0, 0, 0, 0.4),  /* Мягкое внутреннее размытие (для белого текста) */
+        3px 3px 5px rgba(0, 0, 0, 0.5), /* Мягкий внешний слой 1 */
+        5px 5px 8px rgba(0, 0, 0, 0.4); /* Более сильный внешний слой 2 */
 }
 
 .hero-title span {
     color: var(--color-yellow);
 }
 
-.hero-tagline {
+/* .hero-tagline {
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.2;
-}
+} */
 
 .hero-description {
     font-size: 1.5vw;
@@ -456,6 +454,38 @@ body.no-scroll {
     padding: 12px 0;
     font-size: 18px;
 }
+
+.consent-group {
+    display: flex;
+    align-items: flex-start;
+    margin: 15px 0;
+    gap: 10px;
+}
+
+#consent {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.consent-label {
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.consent-label a {
+    color: #0066cc;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.consent-label a:hover {
+    color: #004499;
+}
+
 
 
 
@@ -708,32 +738,32 @@ body.no-scroll {
 
 
 /* --- КНОПКА --- */
-.btn-full-width {
+/* .btn-full-width {
     width: 100%;
     padding: 15px 0;
-    margin-top: auto; /* Прижимаем кнопку к низу карточки */
+    margin-top: auto; 
     border: none;
-    border-radius: 0 0 8px 8px; /* Скругляем только снизу */
+    border-radius: 0 0 8px 8px; 
     font-weight: 700;
     font-size: 16px;
     background-color: var(--color-blue);
     color: var(--color-text-light);
     cursor: pointer;
     transition: background-color 0.3s;
-}
+} */
 
-.btn-full-width:hover {
+/* .btn-full-width:hover {
     background-color: #1a56cc;
-}
+} */
 
-.btn-full-width.btn-yellow {
+/* .btn-full-width.btn-yellow {
     background-color: var(--color-yellow);
     color: var(--color-dark);
-}
+} */
 
-.btn-full-width.btn-yellow:hover {
+/* .btn-full-width.btn-yellow:hover {
     background-color: #e5b300;
-}
+} */
 
 
 
@@ -830,17 +860,13 @@ body.no-scroll {
 }
 
 .footer-socials .social-icon {
-    /* Сбрасываем стили круга */
     width: auto;
     height: auto;
     border-radius: 0;
     background: none; 
-    
-    /* Сохраняем Flexbox и отступ для центрирования */
     display: flex;
     justify-content: center;
     align-items: center;
-    
     font-size: 24px; /* Увеличиваем размер */
     margin-right: 15px; /* Промежуток между иконками */
     transition: transform 0.2s, opacity 0.3s;
@@ -857,7 +883,6 @@ body.no-scroll {
 
 /* Стили для Instagram (ГРАДИЕНТНЫЙ ТЕКСТ) */
 .footer-socials .social-icon.instagram {
-    /* Градиентный цвет для иконки Instagram (как в шапке) */
     background-image: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #495dff);
     color: transparent; 
     -webkit-background-clip: text; 
@@ -938,7 +963,7 @@ body.no-scroll {
     font-weight: 600;
 }
 
-.emergency-btn {
+/* .emergency-btn {
     width: 100%;
     margin-top: 20px;
     padding: 12px;
@@ -950,15 +975,15 @@ body.no-scroll {
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s;
-}
+} */
 
-.emergency-btn i {
+/* .emergency-btn i {
     margin-right: 8px;
-}
+} */
 
-.emergency-btn:hover {
+/* .emergency-btn:hover {
     background-color: #444444;
-}
+} */
 
 
 /* --- НИЖНЯЯ ПАНЕЛЬ (КОПИРАЙТ) --- */
@@ -1002,9 +1027,9 @@ body.no-scroll {
     color: var(--color-yellow);
 }
 
-.website-builder {
+/* .website-builder {
     margin-left: 20px;
-}
+} */
 
 /* ==================================== */
 /* КНОПКА НАВЕРХ */

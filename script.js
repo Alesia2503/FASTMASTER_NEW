@@ -232,6 +232,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const callbackForm = document.getElementById('callback-form');
+    const consentCheckbox = document.getElementById('consent');
+    
+    if (callbackForm) {
+        callbackForm.addEventListener('submit', function(e) {
+            if (!consentCheckbox.checked) {
+                e.preventDefault();
+                // Подсветим чекбокс красным
+                consentCheckbox.classList.add('invalid');
+                // Скроллим к чекбоксу
+                document.querySelector('.consent-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Уберем подсветку через 3 секунды
+                setTimeout(() => {
+                    consentCheckbox.classList.remove('invalid');
+                }, 3000);
+                return false;
+            }
+            // Здесь можно добавить обработку отправки формы
+            console.log('Форма отправлена успешно');
+            // callbackForm.reset(); // Очистить форму после отправки
+        });
+        
+        // Убираем класс invalid при клике на чекбокс
+        consentCheckbox.addEventListener('click', function() {
+            this.classList.remove('invalid');
+        });
+    }
+});
+
+
+
     
     /* ==================================== */
     /* 6. ЛОГИКА ТАБОВ УСЛУГ */
