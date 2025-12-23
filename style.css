@@ -1607,7 +1607,7 @@ body.no-scroll {
     }
     
     .main-menu a {
-        color: var(--color-text-light);
+        color: var(--color-yellow);
         font-size: 30px;
         text-decoration: none;
         display: block;
