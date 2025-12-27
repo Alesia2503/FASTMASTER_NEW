@@ -183,10 +183,13 @@ body.no-scroll {
     display: block; 
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-        url('./img/bg.jpg'); 
-    background-size: 100% auto; 
-    padding-top: 40px; 
+        url('./img/bg.webp'); /* Или bg.webp, если переделаете */
+    
+    /* 'cover' гарантирует, что фон заполнит весь блок без дырок */
+    background-size: cover; 
+    background-position: center center;
     background-repeat: no-repeat;
+    padding-top: 40px;
 }
 
 .hero-overlay {
